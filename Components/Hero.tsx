@@ -13,7 +13,7 @@ export default function Hero() {
                     </button>
                     <input
                         type="text"
-                        className='outline-[#e9dede] w-full bg-[#f3eaea] withinForm border-[#e9dede] py-5 px-4 rounded-full'
+                        className='outline-[#30588a] w-full bg-[#f3eaea] withinForm border-[#30588a] py-5 px-4 rounded-full mb-20'
                         placeholder='Enter your website address or a keyword'
                     />
                 </form>

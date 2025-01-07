@@ -53,12 +53,6 @@ body {
 .withinForm:focus-within {
   outline-color: #b1a6a6;
 }
-/* 
-@media (max-width: 520px) {
-  .withinForm {
-    width: 200px;
-  }
-} */
 
 .maxContainer {
   padding-right: 5%;

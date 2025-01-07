@@ -18,9 +18,9 @@ const Button: React.FC<ButtonProps> = ({
     className = '',
     disabled = false,
 }) => {
-    const baseStyles = `px-4 py-2 font-medium focus:outline-none transition-transform transform hover:scale-105 active:scale-95`;
+    const baseStyles = `px-4 py-3 w-40 rounded-full font-medium focus:outline-none`;
     const variants = {
-        secondary: 'bg-gray-600 text-white hover:bg-gray-700',
+        secondary: 'bg-black text-white',
     };
 
     const combinedStyles = `${baseStyles} ${variants[variant]} ${className} ${disabled ? 'opacity-50 cursor-not-allowed' : ''

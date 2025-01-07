@@ -1,19 +1,17 @@
-import Button from "@/Components/Button";
+"use client" 
+
 import Hero from "@/Components/Hero";
+import SectionList from "@/Components/Section-list";
 
 export default function Home() {
 
-  const handleClick = () => alert('Button Clicked!');
-
   return (
-    <div className="min-h-screen pt-20 pb-20 sm:p-20">
-      <div className="flex pt-32 justify-center items-center text-center flex-col">
+    <div className="min-h-screen pt-20 sm:p-20">
+      <div className="flex pt-32 mb-28 justify-center items-center text-center flex-col">
         <Hero />
       </div>
 
-      {/* <div className="flex flex-col gap-2">
-        <Button text="One Click" onClick={handleClick} variant="secondary" />
-      </div> */}
+      <SectionList />
     </div>
   );
 }

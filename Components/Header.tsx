@@ -20,9 +20,24 @@ export default function Header() {
 
                 {/* Navigation for Medium and Large Screens */}
                 <nav className="hidden md:flex space-x-6">
-                    <Link href="/"><span className="hover:text-blue-300">Tools</span></Link>
-                    <Link href="/about"><span className="hover:text-blue-300">Resources</span></Link>
-                    <Link href="/projects"><span className="hover:text-blue-300">About</span></Link>
+                    <Link href="/">
+                        <span className="hover:text-blue-300 mb-1 text-sm relative group">
+                            Tools
+                            <span className="absolute left-1/2 bottom-0 h-[2px] w-0 bg-white transition-all duration-300 ease-in-out group-hover:w-full group-hover:left-0 "></span>
+                        </span>
+                    </Link>
+                    <Link href="/about">
+                        <span className="hover:text-blue-300 mb-1 text-sm relative group">
+                            Resources
+                            <span className="absolute left-1/2 bottom-0 h-[2px] w-0 bg-white transition-all duration-300 ease-in-out group-hover:w-full group-hover:left-0 "></span>
+                        </span>
+                    </Link>
+                    <Link href="/projects">
+                        <span className="hover:text-blue-300 mb-1 text-sm relative group">
+                            About
+                            <span className="absolute left-1/2 bottom-0 h-[2px] w-0 bg-white transition-all duration-300 ease-in-out group-hover:w-full group-hover:left-0 "></span>
+                        </span>
+                    </Link>
                 </nav>
 
                 {/* Hamburger Icon for Small Screens */}
