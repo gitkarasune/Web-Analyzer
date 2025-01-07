@@ -10,7 +10,7 @@ const One = [
         id: 1,
         name: (
             <div className='flex items-center gap-4'>
-                < FaChartBar className="text-7xl AI_icon" style={{ color: "black" }} />
+                < FaChartBar className="text-7xl AI_icon" style={{ color: "#333" }} />
                 <h5 className='text-2xl font-semibold text-black '>Comprehensive Insights</h5>
             </div>
         ),
@@ -18,7 +18,7 @@ const One = [
             <div
                 className="transition-colors duration-300"
             >
-                Get in-depth details with about any website, from technologies used to hosting providers, frameworks, and monetization strategies. We provide data you can trust.
+                Get in-depth details with any website, from technologies to hosting providers, frameworks, and monetization strategies.
             </div>
         ),
     },
@@ -29,7 +29,7 @@ const Two = [
         id: 1,
         name: (
             <div className='flex items-center gap-4'>
-                <FaClock className="text-7xl AI_icon" style={{ color: "black" }} />
+                <FaClock className="text-7xl AI_icon" style={{ color: "#333" }} />
                 <h5 className='text-2xl font-semibold text-black '>Real-Time Analysis</h5>
             </div>
         ),
@@ -48,7 +48,7 @@ const Three = [
         id: 1,
         name: (
             <div className='flex items-center gap-4'>
-                <FaShieldAlt className="text-7xl AI_icon" style={{ color: "black" }} />
+                <FaShieldAlt className="text-7xl AI_icon" style={{ color: "#333" }} />
                 <h5 className='text-2xl font-semibold text-black '>Trusted Results</h5>
             </div>
         ),
@@ -97,7 +97,7 @@ const SectionList = () => {
                 >
                     {Two.map((two) => (
                         <div key={two.id} className="flex-shrink-0 w-full">
-                            <div className="bg-gray-100 py-12  rounded-lg shadow-sm p-6 hover:scale-105 cursor-pointer transition-all relative  hover:dark:bg-red-600" id='Dream_Job_Hover'>
+                            <div className="bg-gray-100 py-12  rounded-lg shadow-sm p-6 hover:scale-105 cursor-pointer transition-all relative" id='Dream_Job_Hover'>
                                 <FaArrowAltCircleRight id='HideIcon' className='-rotate-45 text-xl -mt-8 absolute right-0 m-5 text-black' />
                                 <div className="flex items-center mb-7">
                                     {two.name}
