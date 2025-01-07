@@ -25,19 +25,42 @@ body {
 ::-webkit-scrollbar {
   width: 8px;
 }
-
 ::-webkit-scrollbar-track {
   background-color: #f1f1f1;
   border-radius: 10px;
 }
-
 ::-webkit-scrollbar-thumb {
   background-color: #888;
   border-radius: 10px;
   border: 1px solid #f1f1f1;
 }
-
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
 
+/* For the Header */
+.WebAnalyzer {
+
+  background-image: linear-gradient(
+    to bottom,
+    rgb(29, 29, 97),
+    rgb(174, 187, 199)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.withinForm:focus-within {
+  outline-color: #b1a6a6;
+}
+/* 
+@media (max-width: 520px) {
+  .withinForm {
+    width: 200px;
+  }
+} */
+
+.maxContainer {
+  padding-right: 5%;
+  padding-left: 5%;
+}

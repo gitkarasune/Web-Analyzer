@@ -23,13 +23,12 @@ export default function Header() {
                     <Link href="/"><span className="hover:text-blue-300">Tools</span></Link>
                     <Link href="/about"><span className="hover:text-blue-300">Resources</span></Link>
                     <Link href="/projects"><span className="hover:text-blue-300">About</span></Link>
-                    <Link href="/contact"><span className="hover:text-blue-300">Contact</span></Link>
                 </nav>
 
                 {/* Hamburger Icon for Small Screens */}
                 <div className="md:hidden">
                     <FaBars
-                        size={24}
+                        size={20}
                         className="cursor-pointer hover:text-blue-300"
                         onClick={toggleMenu}
                     />
@@ -45,7 +44,7 @@ export default function Header() {
                 <div className="flex justify-end p-4">
                     <FaTimes
                         size={24}
-                        className="cursor-pointer hover:text-blue-300"
+                        className="cursor-pointer text-sm text-white"
                         onClick={toggleMenu}
                     />
                 </div>
@@ -53,20 +52,20 @@ export default function Header() {
                 {/* Navigation Links */}
                 <nav className="flex flex-col items-start pl-6 space-y-4">
                     <Link href="/">
-                        <span className="hover:text-blue-300" onClick={toggleMenu}>Home</span>
+                        <span className="hover:text-blue-300" onClick={toggleMenu}>Tools</span>
                     </Link>
                     <Link href="/about">
-                        <span className="hover:text-blue-300" onClick={toggleMenu}>About</span>
+                        <span className="hover:text-blue-300" onClick={toggleMenu}>Resources</span>
                     </Link>
                     <Link href="/projects">
-                        <span className="hover:text-blue-300" onClick={toggleMenu}>Projects</span>
+                        <span className="hover:text-blue-300" onClick={toggleMenu}>About</span>
                     </Link>
-                    <Link href="/blog">
-                        <span className="hover:text-blue-300" onClick={toggleMenu}>Blog</span>
-                    </Link>
-                    <Link href="/contact">
-                        <span className="hover:text-blue-300" onClick={toggleMenu}>Contact</span>
-                    </Link>
+
+                    <div className="absolute bottom-0 w-full">
+                        <Link href="/signup">
+                            <span className="rounded-full bg-white text-black px-20" onClick={toggleMenu}>Sign Up</span>
+                        </Link>
+                    </div>
                 </nav>
             </div>
         </header>
