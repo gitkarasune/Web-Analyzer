@@ -51,16 +51,46 @@ export default function Analyzer() {
             </p>
           </section>
 
+          {/* For the Tools Used */}
+          {/* <h2 className='mb-1 text-2xl font-bold text-black flex justify-start items-start'>Tools Used</h2>
+          <section className='mb-16 flex flex-col justify-items-start items-start bg-black text-white p-10 py-20 rounded-md max-h-60 overflow-y-scroll'>
+            <h4 className='mb-2'><strong>Tools Used</strong></h4>
+            <p className='flex-1 flex items-start justify-start'>
+              {websiteData.tools || 'No tools detected'}
+            </p>
+          </section> */}
+
+          {/* For the Media Queries */}
+          <h2 className='mb-1 text-2xl font-bold text-black flex justify-start items-start'>Media Queries</h2>
+          <section className='mb-16 flex flex-col justify-items-start items-start bg-black text-white p-10 py-20 rounded-md max-h-60 overflow-y-scroll'>
+            <h4 className='mb-2'><strong>Media Queries</strong></h4>
+            <p className='flex-1 flex items-start justify-start'>
+              {websiteData.mediaQueries || "Not optimized"}
+            </p>
+          </section>
+
           {/* For the Frameworks */}
           <h2 className='mb-1 text-2xl font-bold text-black flex justify-start items-start'>Frameworks</h2>
           <section className='mb-16 flex flex-col justify-items-start items-start bg-black text-white p-10 py-20 rounded-md max-h-60 overflow-y-scroll'>
-            <h4 className='mb-2'><strong>Description</strong></h4>
+            <h4 className='mb-2'><strong>Frameworks</strong></h4>
             <p className='flex-1 flex items-start justify-start'>
               {
+                Array.isArray(websiteData.frameworks) &&
                 websiteData.frameworks.length > 0 ?
-                  websiteData.frameworks.join(', ')
+                  websiteData.frameworks.join(',')
                   :
                   'None detected'
+              }
+            </p>
+          </section>
+
+          {/* For the Monetization */}
+          <h2 className='mb-1 text-2xl font-bold text-black flex justify-start items-start'>Monetization</h2>
+          <section className='mb-16 flex flex-col justify-items-start items-start bg-black text-white p-10 py-20 rounded-md max-h-60 overflow-y-scroll'>
+            <h4 className='mb-2'><strong>Monetization</strong></h4>
+            <p className='flex-1 flex items-start justify-start'>
+              {
+                websiteData.monetization || 'No monetization detected'
               }
             </p>
           </section>

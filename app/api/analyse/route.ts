@@ -28,13 +28,22 @@ export async function GET(req: NextRequest) {
         const html = response.data;
         const $ = cheerio.load(html);
         const title = $('title').text();
-        const metaDescription = $('meta[name="description"]').attr('content');
+        const metaDescription = $('meta[name="description"]').attr('content') || "No description avaliable";
+        const metaTools = $('script[src]').map((_, el) => $(el).attr('src')).get();
+
+        const monetization = html.includes('adsbygoogle.js') ? "Google AdSense" : "None Detected";
+        const mediaQueries = html.includes('@media') ? "Suitable for iOS and Android" : "Not optimized";
 
         // Detect technologies (basic example)
-        const frameworks: string[] = [];
-        if ($('script[src*="react"]').length) frameworks.push('React');
-        if ($('script[src*="vue"]').length) frameworks.push('Vue.js');
-        if ($('script[src*="angular"]').length) frameworks.push('Angular');
+        const frameworks = [];
+        if (html.includes('React')) frameworks.push('React');
+        if (html.includes('Vue.js')) frameworks.push('Vue.js');
+        if (html.includes('angular')) frameworks.push('Angular');
+        if (html.includes('python')) frameworks.push('python');
+        if (html.includes('Php')) frameworks.push('Php');
+        if (html.includes('django')) frameworks.push('django');
+        if (html.includes('flask')) frameworks.push('flask');
+        if (html.includes('Moment.js')) frameworks.push('Moment.js');
 
         // Get server information using DNS
         const hostname = new URL(formattedUrl).hostname;
@@ -47,6 +56,9 @@ export async function GET(req: NextRequest) {
             title: title || 'No title available',
             description: metaDescription || 'No description available',
             frameworks,
+            tools: metaTools,
+            mediaQueries,
+            monetization,
             server: {
                 address: dnsInfo.address,
                 family: dnsInfo.family === 4 ? 'IPV4' : 'IPV6',
