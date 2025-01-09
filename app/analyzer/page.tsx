@@ -32,27 +32,60 @@ export default function Analyzer() {
           <h1 className="text-2xl font-bold">Results for <span className='text-sm text-blue-600'>{url}</span></h1>
         </div>
         <div className="border rounded-md p-4 py-20">
-          <section className='mb-16 flex flex-col justify-items-start items-start bg-black text-white p-10 py-20 rounded-md'>
+
+          {/* For the Title */}
+          <h2 className='mb-1 text-2xl font-bold text-black flex justify-start items-start'>Title</h2>
+          <section className='mb-16 flex flex-col justify-items-start items-start bg-black text-white p-10 py-20 rounded-md max-h-60 overflow-y-scroll'>
             <h4 className='mb-2'><strong>Title</strong></h4>
             <p>
               {websiteData.title || 'No title avaliable'}
             </p>
           </section>
-          <p>
-            <strong>Description:</strong> {websiteData.description || 'No description avaliable'}
-          </p>
-          <p>
-            <strong>Frameworks:</strong>{' '}
-            {websiteData.frameworks.length > 0
-              ? websiteData.frameworks.join(', ')
-              : 'None detected'}
-          </p>
-          <p>
-            <strong>Server Address:</strong> {websiteData.server.address}
-          </p>
-          <p>
-            <strong>Server Family:</strong> {websiteData.server.family}
-          </p>
+
+          {/* For the Description */}
+          <h2 className='mb-1 text-2xl font-bold text-black flex justify-start items-start'>Description</h2>
+          <section className='mb-16 flex flex-col justify-items-start items-start bg-black text-white p-10 py-20 rounded-md max-h-60 overflow-y-scroll'>
+            <h4 className='mb-2'><strong>Description</strong></h4>
+            <p className='flex-1 flex items-start justify-start'>
+              {websiteData.description || 'No description avaliable'}
+            </p>
+          </section>
+
+          {/* For the Frameworks */}
+          <h2 className='mb-1 text-2xl font-bold text-black flex justify-start items-start'>Frameworks</h2>
+          <section className='mb-16 flex flex-col justify-items-start items-start bg-black text-white p-10 py-20 rounded-md max-h-60 overflow-y-scroll'>
+            <h4 className='mb-2'><strong>Description</strong></h4>
+            <p className='flex-1 flex items-start justify-start'>
+              {
+                websiteData.frameworks.length > 0 ?
+                  websiteData.frameworks.join(', ')
+                  :
+                  'None detected'
+              }
+            </p>
+          </section>
+
+          {/* For the Server Address */}
+          <h2 className='mb-1 text-2xl font-bold text-black flex justify-start items-start'>Server Address</h2>
+          <section className='mb-16 flex flex-col justify-items-start items-start bg-black text-white p-10 py-20 rounded-md max-h-60 overflow-y-scroll'>
+            <h4 className='mb-2'><strong>Server Address</strong></h4>
+            <p className='flex-1 flex items-start justify-start'>
+              {
+                websiteData.server.address || 'Not avaliable'
+              }
+            </p>
+          </section>
+
+          {/* For the Server Family */}
+          <h2 className='mb-1 text-2xl font-bold text-black flex justify-start items-start'>Server Family</h2>
+          <section className='mb-16 flex flex-col justify-items-start items-start bg-black text-white p-10 py-20 rounded-md max-h-60 overflow-y-scroll'>
+            <h4 className='mb-2'><strong>Server Family</strong></h4>
+            <p className='flex-1 flex items-start justify-start'>
+              {
+                websiteData.server.family || 'Not avaliable'
+              }
+            </p>
+          </section>
         </div>
       </div>
     </div>
