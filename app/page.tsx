@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import axios from "axios";
 // import Hero from "@/Components/Hero";
 import SectionList from "@/Components/Section-list";
@@ -9,19 +10,39 @@ import { FaArrowUp } from "react-icons/fa";
 export default function Home() {
 
   const [url, setUrl] = useState('');
-  const [data, setData] = useState<any>(null);
-  const [error, setError] = useState<string | null>(null);
+  // const [data, setData] = useState<any>(null);
+  // const [error, setError] = useState<string | null>(null);
+
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const analyzeWebsite = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    if (!url) return alert("Please enter a valid URL.");
+
+    setLoading(true);
+
     try {
-      setError(null);
-      setData(null); // clear previous data
+      // setError(null);
+      // setData(null); // clear previous data
       const response = await axios.get(`/api/analyse?url=${encodeURIComponent(url)}`);
-      setData(response.data);
-    } catch (err: any) {
-      setError(err.response?.data?.error || 'An error occurred');
+      // setData(response.data);
+
+      if (response.status === 200) {
+        const data = response.data;
+
+        // Redirect to /analyzer with the fetch data..analyzer
+        router.push(`/analyzer?url=${encodeURIComponent(url)}&data=${encodeURIComponent(JSON.stringify(data))}`);
+      } else {
+        alert(response.data.error || "Failed to analyze website.");
+      }
+    } catch (error: any) {
+      // setError(err.response?.data?.error || 'An error occurred');
+      console.error(error);
+      alert('An error occured while analyzing the website.')
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -34,7 +55,11 @@ export default function Home() {
           <div className="flex justify-center items-center relative ">
             <form className='relative w-full' onSubmit={analyzeWebsite}>
               <button className="bg-black text-white flex justify-center items-center cursor-pointer absolute right-3 top-2 rounded-full p-4" type="submit">
-                <FaArrowUp className='' />
+                { loading ? (
+                  <div className="w-4 h-4 border-2 border-t-transparent border-white rounded-full animate-spin"></div>
+                ) : (
+                  <FaArrowUp className='' /> 
+                  )}
               </button>
               <input
                 type="text"
@@ -46,9 +71,9 @@ export default function Home() {
             </form>
           </div>
 
-          {error && <p className="text-red-500 mt-4">{error}</p>}
+          { loading && <p className="mt-4 text-blue-500">Analyzing website...</p>}
 
-          {data && (
+          {/* {data && (
             <div className="mt-6 p-4 bg-white rounded-lg shadow-lg w-full max-w-md">
               <h2 className="text-lg font-bold mb-2">Analysis Results</h2>
               <p><strong>Title:</strong> {data.title}</p>
@@ -56,7 +81,7 @@ export default function Home() {
               <p><strong>Frameworks:</strong> {data.frameworks.join(', ') || 'None detected'}</p>
               <p><strong>Server:</strong> {data.server?.address} ({data.server?.family})</p>
             </div>
-          )}
+          )} */}
         </div>
       </div>
 
