@@ -66,22 +66,12 @@ export default function Home() {
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
                 className='outline-[#30588a] w-full bg-[#f3eaea] withinForm border-[#30588a] py-5 px-4 rounded-full mb-20'
-                placeholder='Enter website URL (eg. https://www.example.com)'
+                placeholder='URL (eg. https://www.example.com)'
               />
             </form>
           </div>
 
           { loading && <p className="mt-4 text-blue-500">Analyzing website...</p>}
-
-          {/* {data && (
-            <div className="mt-6 p-4 bg-white rounded-lg shadow-lg w-full max-w-md">
-              <h2 className="text-lg font-bold mb-2">Analysis Results</h2>
-              <p><strong>Title:</strong> {data.title}</p>
-              <p><strong>Description:</strong> {data.description}</p>
-              <p><strong>Frameworks:</strong> {data.frameworks.join(', ') || 'None detected'}</p>
-              <p><strong>Server:</strong> {data.server?.address} ({data.server?.family})</p>
-            </div>
-          )} */}
         </div>
       </div>
 
